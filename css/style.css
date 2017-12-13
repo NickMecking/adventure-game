@@ -1,0 +1,27 @@
+body {
+	background-color: white;
+	height: 100%;
+	text-align: center;
+}
+
+#uitleg {
+	position: absolute;
+	top: 70px;
+	right: 600px;
+	left: 100px;
+	border: solid;
+	border-radius: 10px;
+	width: 300px;
+	padding: 10px;
+}
+
+footer {
+	height: 25%;
+	width: 100%;
+	background-color: #04B404;
+	text-align: left;
+
+	position: fixed;
+	bottom: 0;
+	left: 0;
+}
