@@ -11,6 +11,7 @@ function start(){
   title.innerHTML = "Adventure Game";
   image.setAttribute("src","img/start.jpg");
   text.innerHTML = "";
+  uitleg.style.display = "inline";
   uitleg.innerHTML = "Welkom bij de adventuregame. Om het spel te starten druk je op start. De bedoeling van het spel is om telkens de juiste keuzes te maken zodat je overleeft. Als je de goed keuzes hebt gemaakt win je het spel. Als je de verkeerde keuzes maakt kun je het spel gemakkelijk overnieuw spelen.";
   button1.innerHTML = "start"
   button2.style.display = "none";
