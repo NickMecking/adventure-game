@@ -5,6 +5,7 @@ var text = document.getElementById("text");
 var uitleg = document.getElementById("uitleg");
 var button1 = document.getElementById("button1");
 var button2 = document.getElementById("button2");
+var key = false;
 
 function start(){
   page.innerHTML = "Adventure Game";
@@ -94,6 +95,7 @@ function opdracht5(){
   image.setAttribute("src","img/krokodil.jpg");
   title.innerHTML = "Je wordt opgegeten door een krokodil";
   text.innerHTML = "Helaas, je wordt aangevallen door een krokodil. Je overleeft dit niet. Begin overnieuw";
+  button1.innerHTML = "Begin overnieuw";
   button1.onclick = function(){
     start();
   }
@@ -108,11 +110,12 @@ function opdracht6(){
   button2.innerHTML = "Pak de kokosnoot op";
   button1.onclick = function(){
     opdracht7();
-  }
+    }
   button2.onclick = function(){
     opdracht9();
+    }
   }
-}
+
 
 function opdracht7(){
   title.innerHTML = "Je gaat verder de jungle in";
@@ -152,15 +155,36 @@ function opdracht9(){
 
 function opdracht10(){
   title.innerHTML = "Je hebt de man eten gegeven";
-  text.innerHTML = "Je hebt de man eten gegeven. Zelf heb je ook wat gegeten. Samen lopen jullie het pad verder af. Julle komen een huisje tegen. Gaan jullie dit huisje binnen?";
-  image.setAttribute("src","img/junglehuis.jpg");
-  button1.innerHTML = "Je gaat het huisje niet binnen";
-  button2.innerHTML = "Je gaat het huisje binnen";
+  text.innerHTML = "Je hebt de man eten gegeven. Zelf heb je ook wat gegeten. Samen lopen jullie het pad verder af. Julle komen een sleutel tegen. Pak je hem op?";
+  image.setAttribute("src","img/fotometsleutel.jpg");
+  button1.innerHTML = "Pak de sleutel op";
+  button2.innerHTML = "Volgende";
   button1.onclick = function(){
-    opdracht14();
+    alert("Je hebt de sleutel opgepakt!");
+    key = true;
   }
   button2.onclick = function(){
-    opdracht12();
+    opdracht19();
+  }
+}
+
+function opdracht19(){
+  title.innerHTML = "Je ziet een huisje";
+  text.innerHTML = "Je ziet een huisje langs dit pad. Ga je het huisje in?";
+  image.setAttribute("src","img/junglehuis.jpg");
+  button2.style.display = "none";
+  button1.innerHTML = "Ga het huisje in";
+  button1.onclick = function(){
+    if (key == true) {
+      opdracht12();
+    } else {
+      button2.style.display = "inline";
+      alert("je hebt de sleutel niet opgepakt");
+      button2.innerHTML = "Ga terug om de sleutel te pakken";
+      button2.onclick = function(){
+        opdracht10();
+      }
+    }
   }
 }
 
@@ -169,19 +193,24 @@ function opdracht11(){
   title.innerHTML = "Je hebt de man geen eten gegeven.";
   text.innerHTML = "Je hebt de man geen eten gegeven. De man is erg geweldadig, omdat hij erge honger heeft vermoord hij je.";
   image.setAttribute("src","img/game-over.jpg");
-  buton1.innerHTML = "Begin overnieuw";
+  button1.innerHTML = "Begin overnieuw";
   button1.onclick = function(){
     start();
   }
 }
 
 function opdracht12(){
+  button2.style.display = "inline";
   title.innerHTML = "Je bent in het huisje";
-  text.innerHTML = "Je bent nu in het huisje. Je hoort wat vallen in de keuken. Je gaat kijken in de keuken.";
+  text.innerHTML = "Je bent nu in het huisje. Je hoort wat vallen in de keuken. Ga je kijken in de keuken?";
   image.setAttribute("src","img/huis-binnen.jpg");
-  button1.innerHTML = "volgende";
+  button1.innerHTML = "Ga kijken in de keuken";
+  button2.innerHTML = "Ga weer uit het huisje";
   button1.onclick = function(){
     opdracht13();
+  }
+  button2.onclick = function(){
+    opdracht14();
   }
 }
 
@@ -197,8 +226,8 @@ function opdracht13(){
 
 function opdracht14(){
   button2.style.display = "inline";
-  title.innerHTML = "Je gaat om het huisje heen";
-  text.innerHTML = "Jullie zijn om het huisje heen. Jullie horen in de verte een helikopter. Jullie zien hout liggen.";
+  title.innerHTML = "Je bent weer naar buiten gegaan";
+  text.innerHTML = "Je bent weer uit het huisje gegaan. Jullie horen in de verte een helikopter. Jullie zien hout liggen.";
   image.setAttribute("src","img/hout.jpg");
   button1.innerHTML = "Jullie gaan vuur maken";
   button2.innerHTML = "Jullie maken geen vuur";
